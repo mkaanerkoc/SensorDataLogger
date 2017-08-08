@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SensorsSchema"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="Devices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="Device" type="DeviceType"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:complexType name="DeviceType">
+    <xs:sequence>
+      <xs:element name="Brand" type="xs:string"></xs:element>
+      <xs:element name="Model" type="xs:string"></xs:element>
+      <xs:element name="Protocol">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="ModbusRTU"/>
+            <xs:enumeration value="ModbusASCII"/>
+            <xs:enumeration value="ModbusTCP"/>
+            <xs:enumeration value="CSV"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      
+      <xs:element name="PhysicalLayer">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="RS232"/>
+            <xs:enumeration value="RS485"/>
+            <xs:enumeration value="Ethernet"/>
+            <xs:enumeration value="WiFi"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Commands">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="Command">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Type">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Read"/>
+                        <xs:enumeration value="Write"/>
+                        <xs:enumeration value="Status"/>
+                        <xs:enumeration value="Reset"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Code" type="xs:string"></xs:element>
+                  <xs:element name="Description" type="xs:string"></xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Params">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="Param">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Name" type="xs:string"></xs:element>
+                  <xs:element name="Unit" type="xs:string"></xs:element>
+                  <xs:element name="Index" type="xs:integer"></xs:element>
+                  <xs:element name="Description" type="xs:string"></xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+</xs:schema>
