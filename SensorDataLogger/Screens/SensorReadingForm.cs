@@ -15,9 +15,9 @@ namespace SensorDataLogger.Screens
 
     public sealed partial class SensorReadingForm : Form
     {
-        private PG250 mPG250;
+        
         private PG250Page pg250Page;
-        private PG300Page pg300Page;
+       
         private string deviceName;
 
         public SensorReadingForm(string deviceName)
@@ -37,17 +37,7 @@ namespace SensorDataLogger.Screens
 
         }
 
-        
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            mPG250.ReadStatus(serialPort1);
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            mPG250.ReadChannels(serialPort1);
-        }
+       
 
         delegate void updatePG250ChannelTableDelegate(PG250 pg250);
         

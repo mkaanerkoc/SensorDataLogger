@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
+using SensorDataLogger.Utilities;
+using SensorDataLogger.StructObjects;
 
 namespace SensorDataLogger.Devices
 {
     public partial class PG250Page : UserControl
     {
+        private PG250 mPG250;
+        private DateTime dateTime;
         private bool Recording = false;
         private bool Connected = false;
 
@@ -20,6 +24,8 @@ namespace SensorDataLogger.Devices
         {
             InitializeComponent();
             InitializeViews();
+            mPG250 = new PG250();
+
         }
 
         //Parser Functions
@@ -152,6 +158,7 @@ namespace SensorDataLogger.Devices
         private void pg250Timer_Tick(object sender, EventArgs e)
         {
             Console.WriteLine("Timer Tick");
+            ExcelManager.Instance.AppendLog(AppConstants.PG250_TYPE, mPG250.channelList);
         }
 
         

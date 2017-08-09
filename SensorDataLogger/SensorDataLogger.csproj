@@ -63,6 +63,13 @@
     <Compile Include="Devices\PG300Page.Designer.cs">
       <DependentUpon>PG300Page.cs</DependentUpon>
     </Compile>
+    <Compile Include="Devices\PG350.cs" />
+    <Compile Include="Devices\PG350Page.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\PG350Page.Designer.cs">
+      <DependentUpon>PG350Page.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\AddFactoryDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,10 +135,9 @@
       <DependentUpon>SensorReadingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Sensor.cs" />
+    <Compile Include="StructObjects\AppConstants.cs" />
     <Compile Include="StructObjects\FactoryModel.cs" />
     <Compile Include="StructObjects\OperatorModel.cs" />
-    <Compile Include="StructObjects\PG250Model.cs" />
-    <Compile Include="StructObjects\PG300Model.cs" />
     <Compile Include="StructObjects\ShaftModel.cs" />
     <Compile Include="Utilities\ExcelManager.cs" />
     <Compile Include="Utilities\ExcelWriter.cs" />
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Devices\PG300Page.resx">
       <DependentUpon>PG300Page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\PG350Page.resx">
+      <DependentUpon>PG350Page.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AddFactoryDialog.resx">
       <DependentUpon>AddFactoryDialog.cs</DependentUpon>

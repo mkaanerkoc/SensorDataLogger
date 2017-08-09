@@ -1,4 +1,5 @@
-﻿using SensorDataLogger.Screens;
+﻿using SensorDataLogger.Devices;
+using SensorDataLogger.Screens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,8 @@ namespace SensorDataLogger
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new OpeningScreen());
+            //Application.Run(new OpeningScreen());
+            Application.Run(new PG350Page());
         }
     }
 }

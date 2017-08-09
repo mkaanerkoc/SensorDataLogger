@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SensorDataLogger.StructObjects
+namespace SensorDataLogger.Devices
 {
-    public class PG300Model
+    class PG350
     {
-
     }
 }

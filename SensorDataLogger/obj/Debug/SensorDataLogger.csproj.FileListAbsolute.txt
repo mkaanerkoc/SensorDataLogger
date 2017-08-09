@@ -18,3 +18,4 @@ C:\Users\Kaan\Documents\Visual Studio 2015\Projects\SensorDataLogger\SensorDataL
 C:\Users\Kaan\Documents\Visual Studio 2015\Projects\SensorDataLogger\SensorDataLogger\obj\Debug\SensorDataLogger.Dialogs.AddFactoryDialog.resources
 C:\Users\Kaan\Documents\Visual Studio 2015\Projects\SensorDataLogger\SensorDataLogger\obj\Debug\SensorDataLogger.Dialogs.AddShaftDialog.resources
 C:\Users\Kaan\Documents\Visual Studio 2015\Projects\SensorDataLogger\SensorDataLogger\obj\Debug\SensorDataLogger.Devices.PG300Page.resources
+C:\Users\Kaan\Documents\Visual Studio 2015\Projects\SensorDataLogger\SensorDataLogger\obj\Debug\SensorDataLogger.Devices.PG350Page.resources

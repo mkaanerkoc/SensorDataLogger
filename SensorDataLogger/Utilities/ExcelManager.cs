@@ -1,6 +1,8 @@
 ﻿using Microsoft.Office.Interop.Excel;
+using SensorDataLogger.StructObjects;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -13,7 +15,14 @@ namespace SensorDataLogger.Utilities
     {
         private static ExcelManager instance = null;
         private static readonly object padlock = new object();
+        private List<object> dataBuffer;
         private Thread thread;
+
+        /*Logging Variables*/
+        private string fileName = "";
+        private string filePath = "";
+        private byte deviceType = 0;
+        private UInt32 lastRowIndex = AppConstants.INITIAL_LOG_ROW;
 
         public ExcelManager()
         {
@@ -62,18 +71,23 @@ namespace SensorDataLogger.Utilities
          *  @Return - int
          * 
          */
-        public int CreateWorkFile(     Int16 DeviceType,
-                                        string OperatorName,
-                                        string FabrikaIsmi,
-                                        string BacaIsmi,
-                                        string DateTimeStr,
-                                        string FileNameStr,
-                                        string FilePath)
+        public int CreateWorkFile(  Int16 DeviceType,
+                                    string OperatorName,
+                                    string FabrikaIsmi,
+                                    string BacaIsmi,
+                                    string DateTimeStr,
+                                    string FileNameStr,
+                                    string FilePath)
         {
 
             Microsoft.Office.Interop.Excel.Application oXL = new
             Microsoft.Office.Interop.Excel.Application();
             Microsoft.Office.Interop.Excel._Workbook oWB = null;
+
+            this.fileName = FileNameStr;
+            this.filePath = FilePath;
+            this.deviceType = (byte)(DeviceType + 1);
+
             if (oXL == null)
             {
                 MessageBox.Show("Excel düzgün şekilde yüklenmemiş. Çıkılıyor !");
@@ -127,6 +141,11 @@ namespace SensorDataLogger.Utilities
                 sh.Range[sh.Cells[7, 5], sh.Cells[7, 6]].Merge();
                 sh.Range[sh.Cells[7, 7], sh.Cells[7, 8]].Merge();
 
+                sh.Range[sh.Cells[3, 5], sh.Cells[7, 8]].Cells.HorizontalAlignment =
+                 Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                sh.Range[sh.Cells[3, 5], sh.Cells[7, 8]].Cells.Font.Size = 14;
+
+
                 sh.Cells[3, 5] = "Operatör İsmi ";
                 sh.Cells[3, 7] = OperatorName;
 
@@ -143,6 +162,34 @@ namespace SensorDataLogger.Utilities
                 sh.Cells[7, 7] = DateTimeStr;
                 //oSheet.Cells[row, col] = data;
                 //
+
+                //Cihaza has Parametre Headerlarının yazıldıgı bölüm
+                if (this.deviceType == AppConstants.PG250_TYPE)
+                {
+                    int k = 1;
+                    
+                    foreach (string header in AppConstants.PG250_HEADERS)
+                    {
+                        sh.Columns[k].ColumnWidth = 20;
+                        sh.Cells[AppConstants.INITIAL_LOG_ROW, k] = header;
+                        sh.Cells[AppConstants.INITIAL_LOG_ROW, k].Font.Size = 16;
+                        sh.Cells[AppConstants.INITIAL_LOG_ROW, k].Font.Bold = true;
+                        sh.Cells[AppConstants.INITIAL_LOG_ROW, k].Interior.Color = Color.LightSkyBlue;
+                        sh.Cells[AppConstants.INITIAL_LOG_ROW, k].HorizontalAlignment =
+                 Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                        k++;
+                    }
+                }
+                else if (this.deviceType == AppConstants.PG300_TYPE)
+                {
+                    int k = 1;
+                    foreach (string header in AppConstants.PG300_HEADERS)
+                    {
+                        sh.Cells[AppConstants.INITIAL_LOG_ROW, k] = header;
+                        k++;
+                    }
+                }
+
                 wb.SaveAs(FilePath+"/"+FileNameStr);
                 wb.Close();
                 oXL.Quit();
@@ -173,12 +220,60 @@ namespace SensorDataLogger.Utilities
 
         }
         
-        private void FillBuffer()
+        public void AppendLog(byte DeviceType,object DataObject)
+        {
+            if(this.deviceType  == DeviceType)
+            {
+                dataBuffer.Add(DataObject);
+                if(dataBuffer.Count>AppConstants.MAXIMUM_BUFFER_SIZE)
+                {
+                    SaveBufferOnWorkFile();
+                }
+            }
+            else
+            {
+                Console.WriteLine("Kayıtlı olmayan bir cihaz türü seçilmiş");
+                return;
+            }
+        }
+
+        private void SaveBufferOnWorkFile()
+        {
+            if(this.deviceType == AppConstants.PG250_TYPE)
+            {
+
+            }
+            else if(this.deviceType == AppConstants.PG300_TYPE)
+            {
+
+            }
+        }
+
+
+        private void GetLastRawIndex()
+        {
+
+        }
+        private void StartLogging()
+        {
+            dataBuffer = new List<object>();
+
+        }
+
+        private void PauseLogging()
         {
 
         }
 
-        private void SaveBufferOnWorkFile()
+        /*
+         * Loglama işlemini bitirir ve excelin son halini kaydeder.
+         * 
+         * 
+         * 
+         * 
+         * 
+        */    
+        private void FinishLogging()
         {
 
         }

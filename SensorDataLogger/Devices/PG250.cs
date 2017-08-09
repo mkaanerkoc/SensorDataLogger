@@ -11,6 +11,8 @@ namespace SensorDataLogger.Devices
 
     class PG250 : BaseSensor, ISensorInterface
     {
+        public DateTime dateTime;
+
         public class PG250ChannelInfo
         {
             public string channelName { get; set; }
@@ -98,24 +100,25 @@ namespace SensorDataLogger.Devices
                     if (subStrings[0].Equals("R01"))
                     {
                         this.currentScreen = int.Parse(subStrings[1]);
+                        this.dateTime = DateTime.Now;
                         for (int i = 0; i<9 ;i++)
                         {
                             string str = subStrings[i+2];
                             //str = str.Replace('.', ',');
                             //Console.WriteLine(str);
-                            channelList.ElementAt<PG250ChannelInfo>(i).RCode = str[0];
-                            channelList.ElementAt<PG250ChannelInfo>(i).Range = double.Parse(str.Substring(1, 4));
-                            channelList.ElementAt<PG250ChannelInfo>(i).CCode = str[5];
-                            if(channelList.ElementAt<PG250ChannelInfo>(i).CCode != 'C')
+                            channelList.ElementAt(i).RCode = str[0];
+                            channelList.ElementAt(i).Range = double.Parse(str.Substring(1, 4));
+                            channelList.ElementAt(i).CCode = str[5];
+                            if(channelList.ElementAt(i).CCode != 'C')
                             {
-                                channelList.ElementAt<PG250ChannelInfo>(i).value = double.Parse(str.Substring(6, 5));
+                                channelList.ElementAt(i).value = double.Parse(str.Substring(6, 5));
                             }
-                            Console.WriteLine("Channel Name : {0}", channelList.ElementAt<PG250ChannelInfo>(i).channelName);
-                            Console.WriteLine("RCode : {0}", channelList.ElementAt<PG250ChannelInfo>(i).RCode);
-                            Console.WriteLine("Range: {0} ", channelList.ElementAt<PG250ChannelInfo>(i).Range);
-                            Console.WriteLine("CCode: {0} ", channelList.ElementAt<PG250ChannelInfo>(i).CCode);
-                            Console.WriteLine("value: {0} ", channelList.ElementAt<PG250ChannelInfo>(i).value);
-                            }
+                            Console.WriteLine("Channel Name : {0}", channelList.ElementAt(i).channelName);
+                            Console.WriteLine("RCode : {0}", channelList.ElementAt(i).RCode);
+                            Console.WriteLine("Range: {0} ", channelList.ElementAt(i).Range);
+                            Console.WriteLine("CCode: {0} ", channelList.ElementAt(i).CCode);
+                            Console.WriteLine("value: {0} ", channelList.ElementAt(i).value);
+                        }
                     }
                     break;
                 case "C23":
@@ -132,8 +135,6 @@ namespace SensorDataLogger.Devices
                         this.FLOW = double.Parse(subStrings[2]);
                         this.NDIR = double.Parse(subStrings[3].Substring(0, 6));
                         Console.WriteLine("Drain Discharge : {0}, Sample Flow Rate : {1}, NDIR : {2}", this.DFLG, this.FLOW, this.NDIR);
-                        
-                        
                     }
                     break;
                 default:

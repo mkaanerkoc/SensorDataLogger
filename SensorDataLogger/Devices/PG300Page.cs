@@ -12,6 +12,7 @@ namespace SensorDataLogger.Devices
 {
     public partial class PG300Page : UserControl
     {
+        private PG300Page pg300Page;
         public PG300Page()
         {
             InitializeComponent();
