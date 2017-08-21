@@ -121,7 +121,7 @@
             this.groupBox17.Controls.Add(this.groupBox11);
             this.groupBox17.Controls.Add(this.groupBox12);
             this.groupBox17.Controls.Add(this.groupBox13);
-            this.groupBox17.Location = new System.Drawing.Point(3, 505);
+            this.groupBox17.Location = new System.Drawing.Point(6, 430);
             this.groupBox17.Name = "groupBox17";
             this.groupBox17.Size = new System.Drawing.Size(846, 148);
             this.groupBox17.TabIndex = 10;
@@ -258,9 +258,9 @@
             this.groupBox1.Controls.Add(this.groupBox8);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 128);
+            this.groupBox1.Location = new System.Drawing.Point(3, 145);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(846, 371);
+            this.groupBox1.Size = new System.Drawing.Size(1179, 265);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Değerler";
@@ -271,9 +271,9 @@
             this.groupBox10.Controls.Add(this.label35);
             this.groupBox10.Controls.Add(this.label16);
             this.groupBox10.Controls.Add(this.label17);
-            this.groupBox10.Location = new System.Drawing.Point(627, 146);
+            this.groupBox10.Location = new System.Drawing.Point(197, 146);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(200, 100);
+            this.groupBox10.Size = new System.Drawing.Size(187, 100);
             this.groupBox10.TabIndex = 6;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "SO2";
@@ -320,9 +320,9 @@
             this.groupBox9.Controls.Add(this.label27);
             this.groupBox9.Controls.Add(this.label8);
             this.groupBox9.Controls.Add(this.label9);
-            this.groupBox9.Location = new System.Drawing.Point(627, 40);
+            this.groupBox9.Location = new System.Drawing.Point(584, 40);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(200, 100);
+            this.groupBox9.Size = new System.Drawing.Size(176, 100);
             this.groupBox9.TabIndex = 3;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Correlated NOx";
@@ -330,7 +330,7 @@
             // pg250CorrNOxLabel
             // 
             this.pg250CorrNOxLabel.AutoSize = true;
-            this.pg250CorrNOxLabel.Location = new System.Drawing.Point(88, 60);
+            this.pg250CorrNOxLabel.Location = new System.Drawing.Point(74, 60);
             this.pg250CorrNOxLabel.Name = "pg250CorrNOxLabel";
             this.pg250CorrNOxLabel.Size = new System.Drawing.Size(15, 20);
             this.pg250CorrNOxLabel.TabIndex = 14;
@@ -339,7 +339,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(88, 35);
+            this.label27.Location = new System.Drawing.Point(74, 35);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(15, 20);
             this.label27.TabIndex = 13;
@@ -348,7 +348,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 60);
+            this.label8.Location = new System.Drawing.Point(7, 60);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 20);
             this.label8.TabIndex = 7;
@@ -357,7 +357,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(21, 35);
+            this.label9.Location = new System.Drawing.Point(7, 35);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 20);
             this.label9.TabIndex = 6;
@@ -369,9 +369,9 @@
             this.groupBox6.Controls.Add(this.label33);
             this.groupBox6.Controls.Add(this.label14);
             this.groupBox6.Controls.Add(this.label15);
-            this.groupBox6.Location = new System.Drawing.Point(421, 146);
+            this.groupBox6.Location = new System.Drawing.Point(9, 146);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(200, 100);
+            this.groupBox6.Size = new System.Drawing.Size(182, 100);
             this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "O2";
@@ -418,9 +418,9 @@
             this.groupBox14.Controls.Add(this.label37);
             this.groupBox14.Controls.Add(this.label18);
             this.groupBox14.Controls.Add(this.label19);
-            this.groupBox14.Location = new System.Drawing.Point(9, 252);
+            this.groupBox14.Location = new System.Drawing.Point(390, 146);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(200, 100);
+            this.groupBox14.Size = new System.Drawing.Size(188, 100);
             this.groupBox14.TabIndex = 7;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Correlated SO2";
@@ -467,9 +467,9 @@
             this.groupBox5.Controls.Add(this.label25);
             this.groupBox5.Controls.Add(this.label6);
             this.groupBox5.Controls.Add(this.label7);
-            this.groupBox5.Location = new System.Drawing.Point(421, 40);
+            this.groupBox5.Location = new System.Drawing.Point(390, 40);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(200, 100);
+            this.groupBox5.Size = new System.Drawing.Size(188, 100);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Correlated NO";
@@ -477,7 +477,7 @@
             // pg250CorrNOLabel
             // 
             this.pg250CorrNOLabel.AutoSize = true;
-            this.pg250CorrNOLabel.Location = new System.Drawing.Point(95, 60);
+            this.pg250CorrNOLabel.Location = new System.Drawing.Point(81, 60);
             this.pg250CorrNOLabel.Name = "pg250CorrNOLabel";
             this.pg250CorrNOLabel.Size = new System.Drawing.Size(15, 20);
             this.pg250CorrNOLabel.TabIndex = 12;
@@ -486,7 +486,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(95, 35);
+            this.label25.Location = new System.Drawing.Point(81, 35);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(15, 20);
             this.label25.TabIndex = 11;
@@ -495,7 +495,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 60);
+            this.label6.Location = new System.Drawing.Point(5, 60);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 20);
             this.label6.TabIndex = 5;
@@ -504,7 +504,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 35);
+            this.label7.Location = new System.Drawing.Point(5, 35);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 20);
             this.label7.TabIndex = 4;
@@ -516,9 +516,9 @@
             this.groupBox7.Controls.Add(this.label31);
             this.groupBox7.Controls.Add(this.label12);
             this.groupBox7.Controls.Add(this.label13);
-            this.groupBox7.Location = new System.Drawing.Point(215, 146);
+            this.groupBox7.Location = new System.Drawing.Point(969, 40);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(200, 100);
+            this.groupBox7.Size = new System.Drawing.Size(204, 100);
             this.groupBox7.TabIndex = 4;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "CO2";
@@ -565,9 +565,9 @@
             this.groupBox4.Controls.Add(this.label23);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Location = new System.Drawing.Point(215, 40);
+            this.groupBox4.Location = new System.Drawing.Point(197, 40);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 100);
+            this.groupBox4.Size = new System.Drawing.Size(187, 100);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "NOx";
@@ -575,7 +575,7 @@
             // pg250NOxLabel
             // 
             this.pg250NOxLabel.AutoSize = true;
-            this.pg250NOxLabel.Location = new System.Drawing.Point(95, 60);
+            this.pg250NOxLabel.Location = new System.Drawing.Point(81, 60);
             this.pg250NOxLabel.Name = "pg250NOxLabel";
             this.pg250NOxLabel.Size = new System.Drawing.Size(15, 20);
             this.pg250NOxLabel.TabIndex = 5;
@@ -584,7 +584,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(95, 35);
+            this.label23.Location = new System.Drawing.Point(81, 35);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(15, 20);
             this.label23.TabIndex = 4;
@@ -593,7 +593,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 60);
+            this.label4.Location = new System.Drawing.Point(5, 60);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 20);
             this.label4.TabIndex = 3;
@@ -602,7 +602,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 35);
+            this.label5.Location = new System.Drawing.Point(5, 35);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 20);
             this.label5.TabIndex = 2;
@@ -614,9 +614,9 @@
             this.groupBox8.Controls.Add(this.label29);
             this.groupBox8.Controls.Add(this.label10);
             this.groupBox8.Controls.Add(this.label11);
-            this.groupBox8.Location = new System.Drawing.Point(9, 146);
+            this.groupBox8.Location = new System.Drawing.Point(766, 40);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(200, 100);
+            this.groupBox8.Size = new System.Drawing.Size(197, 100);
             this.groupBox8.TabIndex = 3;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "CO";
@@ -624,7 +624,7 @@
             // pg250COLabel
             // 
             this.pg250COLabel.AutoSize = true;
-            this.pg250COLabel.Location = new System.Drawing.Point(101, 60);
+            this.pg250COLabel.Location = new System.Drawing.Point(87, 60);
             this.pg250COLabel.Name = "pg250COLabel";
             this.pg250COLabel.Size = new System.Drawing.Size(15, 20);
             this.pg250COLabel.TabIndex = 8;
@@ -633,7 +633,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(101, 35);
+            this.label29.Location = new System.Drawing.Point(87, 35);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(15, 20);
             this.label29.TabIndex = 7;
@@ -642,7 +642,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(25, 60);
+            this.label10.Location = new System.Drawing.Point(11, 60);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(70, 20);
             this.label10.TabIndex = 9;
@@ -651,7 +651,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(25, 35);
+            this.label11.Location = new System.Drawing.Point(11, 35);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(72, 20);
             this.label11.TabIndex = 8;
@@ -665,7 +665,7 @@
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Location = new System.Drawing.Point(9, 40);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 100);
+            this.groupBox3.Size = new System.Drawing.Size(182, 100);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "NO";
@@ -673,7 +673,7 @@
             // pg250NOLabel
             // 
             this.pg250NOLabel.AutoSize = true;
-            this.pg250NOLabel.Location = new System.Drawing.Point(101, 60);
+            this.pg250NOLabel.Location = new System.Drawing.Point(84, 60);
             this.pg250NOLabel.Name = "pg250NOLabel";
             this.pg250NOLabel.Size = new System.Drawing.Size(15, 20);
             this.pg250NOLabel.TabIndex = 3;
@@ -682,7 +682,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(101, 35);
+            this.label20.Location = new System.Drawing.Point(84, 35);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(15, 20);
             this.label20.TabIndex = 2;
@@ -691,7 +691,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 60);
+            this.label3.Location = new System.Drawing.Point(8, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 20);
             this.label3.TabIndex = 1;
@@ -700,7 +700,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 35);
+            this.label1.Location = new System.Drawing.Point(8, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 20);
             this.label1.TabIndex = 0;
@@ -802,7 +802,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "PG250Page";
-            this.Size = new System.Drawing.Size(856, 719);
+            this.Size = new System.Drawing.Size(1200, 720);
             this.groupBox17.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();

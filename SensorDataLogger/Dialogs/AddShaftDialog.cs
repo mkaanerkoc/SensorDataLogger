@@ -16,5 +16,10 @@ namespace SensorDataLogger.Dialogs
         {
             InitializeComponent();
         }
+
+        private void saveBt_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

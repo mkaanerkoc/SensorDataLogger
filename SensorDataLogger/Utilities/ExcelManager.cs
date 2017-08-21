@@ -1,4 +1,5 @@
 ﻿using Microsoft.Office.Interop.Excel;
+using SensorDataLogger.Dialogs;
 using SensorDataLogger.StructObjects;
 using System;
 using System.Collections.Generic;
@@ -145,6 +146,8 @@ namespace SensorDataLogger.Utilities
                  Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                 sh.Range[sh.Cells[3, 5], sh.Cells[7, 8]].Cells.Font.Size = 14;
 
+                sh.Cells[2, 5] = "Cihaz Türü ";
+                sh.Cells[2, 7] = (DeviceType == AppConstants.PG250_TYPE)? "PG250":"PG300";
 
                 sh.Cells[3, 5] = "Operatör İsmi ";
                 sh.Cells[3, 7] = OperatorName;
@@ -215,8 +218,38 @@ namespace SensorDataLogger.Utilities
 
         }
 
-        private void ValidateWorkFile(string filename)
+        public void ValidateWorkFile(string filename)
         {
+            Microsoft.Office.Interop.Excel._Worksheet xlWorksheet;
+            try
+            {
+                Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(filename);
+                xlWorksheet = xlWorkbook.ActiveSheet;
+                Microsoft.Office.Interop.Excel.Range xlRange = xlWorksheet.UsedRange;
+            }
+            catch(Exception eee)
+            {
+                MessageBox.Show("Dosya açılamadı ! " + eee.Message);
+                return;
+            }
+
+            Console.WriteLine((string)xlWorksheet.Cells[2, 7].Value2);
+            using (var form = new OldRecordInformationDialog((string)xlWorksheet.Cells[2, 7].Value2,
+                                                                (string)xlWorksheet.Cells[3, 7].Value2,
+                                                                (string)xlWorksheet.Cells[4, 7].Value2,
+                                                                (string)xlWorksheet.Cells[5, 7].Value2,
+                                                                (string)xlWorksheet.Cells[6, 7].Value2,
+                                                                (string)xlWorksheet.Cells[3, 7].Value2,
+                                                                (string)xlWorksheet.Cells[3, 7].Value2))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    //OperatorModel newOperator = form.operatorModel;            //values preserved after close
+                    //userList.Items.Add(newOperator.Name + " " + newOperator.Surname + " - " + newOperator.ID);
+                }
+            }
 
         }
         

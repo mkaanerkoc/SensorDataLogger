@@ -19,7 +19,7 @@ namespace SensorDataLogger
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new OpeningScreen());
-            Application.Run(new PG350Page());
+            Application.Run(new PG300Page());
         }
     }
 }

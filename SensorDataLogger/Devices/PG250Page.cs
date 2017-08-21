@@ -158,7 +158,7 @@ namespace SensorDataLogger.Devices
         private void pg250Timer_Tick(object sender, EventArgs e)
         {
             Console.WriteLine("Timer Tick");
-            ExcelManager.Instance.AppendLog(AppConstants.PG250_TYPE, mPG250.channelList);
+            //ExcelManager.Instance.AppendLog(AppConstants.PG250_TYPE, mPG250.channelList);
         }
 
         

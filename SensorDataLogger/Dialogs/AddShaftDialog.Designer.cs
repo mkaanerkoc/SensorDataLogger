@@ -120,6 +120,7 @@
             this.saveBt.TabIndex = 9;
             this.saveBt.Text = "Kaydet";
             this.saveBt.UseVisualStyleBackColor = true;
+            this.saveBt.Click += new System.EventHandler(this.saveBt_Click);
             // 
             // AddShaftDialog
             // 

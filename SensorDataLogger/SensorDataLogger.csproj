@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AGauge, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AGauge_V2.2.0.2\lib\AGauge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,27 +52,29 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="ConstsNTypes.cs" />
+    <Compile Include="Controls\DataUnit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DataUnit.Designer.cs">
+      <DependentUpon>DataUnit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Devices\BaseSensor.cs" />
     <Compile Include="Devices\PG250.cs" />
+    <Compile Include="Devices\PG250Manager.cs" />
+    <Compile Include="Devices\PG250Model.cs" />
     <Compile Include="Devices\PG250Page.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Devices\PG250Page.Designer.cs">
       <DependentUpon>PG250Page.cs</DependentUpon>
     </Compile>
-    <Compile Include="Devices\PG300.cs" />
+    <Compile Include="Devices\PG300Manager.cs" />
+    <Compile Include="Devices\PG300Model.cs" />
     <Compile Include="Devices\PG300Page.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Devices\PG300Page.Designer.cs">
       <DependentUpon>PG300Page.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Devices\PG350.cs" />
-    <Compile Include="Devices\PG350Page.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Devices\PG350Page.Designer.cs">
-      <DependentUpon>PG350Page.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\AddFactoryDialog.cs">
       <SubType>Form</SubType>
@@ -88,7 +94,15 @@
     <Compile Include="Dialogs\AddUserDialog.Designer.cs">
       <DependentUpon>AddUserDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\OldRecordInformationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\OldRecordInformationDialog.Designer.cs">
+      <DependentUpon>OldRecordInformationDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExpandoObjectHandler.cs" />
+    <Compile Include="Interfaces\IPG250ManagerToPage.cs" />
+    <Compile Include="Interfaces\IPG300ManagerToPage.cs" />
     <Compile Include="Screens\ConsoleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,15 +155,16 @@
     <Compile Include="StructObjects\ShaftModel.cs" />
     <Compile Include="Utilities\ExcelManager.cs" />
     <Compile Include="Utilities\ExcelWriter.cs" />
+    <Compile Include="Utilities\MailManager.cs" />
     <Compile Include="Utilities\Utilites.cs" />
+    <EmbeddedResource Include="Controls\DataUnit.resx">
+      <DependentUpon>DataUnit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Devices\PG250Page.resx">
       <DependentUpon>PG250Page.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Devices\PG300Page.resx">
       <DependentUpon>PG300Page.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Devices\PG350Page.resx">
-      <DependentUpon>PG350Page.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AddFactoryDialog.resx">
       <DependentUpon>AddFactoryDialog.cs</DependentUpon>
@@ -159,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AddUserDialog.resx">
       <DependentUpon>AddUserDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\OldRecordInformationDialog.resx">
+      <DependentUpon>OldRecordInformationDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -187,6 +205,7 @@
     <EmbeddedResource Include="Screens\SensorReadingForm.resx">
       <DependentUpon>SensorReadingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

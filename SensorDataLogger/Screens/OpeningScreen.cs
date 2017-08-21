@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SensorDataLogger.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,16 +18,17 @@ namespace SensorDataLogger.Screens
         public OpeningScreen()
         {
             InitializeComponent();
+            openFileDialog1.Filter = "XML files (*.xls)|*.xlsx";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.Multiselect = false;
         }
 
         private void oldRecordBt_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                System.IO.StreamReader sr = new
-                   System.IO.StreamReader(openFileDialog1.FileName);
-                MessageBox.Show(sr.ReadToEnd());
-                sr.Close();
+
+                ExcelManager.Instance.ValidateWorkFile(openFileDialog1.FileName);
             }
         }
 
