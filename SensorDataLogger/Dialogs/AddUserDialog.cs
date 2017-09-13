@@ -1,4 +1,5 @@
-﻿using SensorDataLogger.StructObjects;
+﻿using SensorDataLogger.Screens;
+using SensorDataLogger.StructObjects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +15,12 @@ namespace SensorDataLogger.Dialogs
    
     public partial class AddUserDialog : Form
     {
-        public OperatorModel operatorModel { get; set; }
+        public Operator operatorModel { get; set; }
 
         public AddUserDialog()
         {
             InitializeComponent();
-            this.operatorModel = new OperatorModel();
+            this.operatorModel = new Operator();
         }
 
         private void saveBt_Click(object sender, EventArgs e)

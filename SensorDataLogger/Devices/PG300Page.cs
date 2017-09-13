@@ -42,7 +42,7 @@ namespace SensorDataLogger.Devices
             for (int i = 0; i < pg300Manager.parameterTable.Count;i++)
             {
                 DataUnit du = new DataUnit();
-                du.Location = new Point(218 * (i%5) + 5, (i / 5) * 180);
+                du.Location = new Point(218 * (i%4) + 4, (i / 4) * 180);
                 du.Size = new Size(218, 180);
                 du.Label = (string)pg300Manager.parameterTable[i].name;
                 du.CodeType = pg300Manager.parameterTable[i].id;
@@ -50,6 +50,10 @@ namespace SensorDataLogger.Devices
                 dataUnitList.Add(du);
             }
             
+        }
+        private void InitializeDiagnosticsUnits()
+        {
+
         }
         //TODO burada delagation felan bi sikler yapılacak
         public void ReceiveR201DataFromManager(List<PG300ChannelModel> list)
@@ -61,21 +65,29 @@ namespace SensorDataLogger.Devices
                 DataUnit du = dataUnitList.Find(x => x.CodeType == list[i].dataType) ;//Daha iyi bi getirme yöntemi bulunabilir
                 du.Invoke((MethodInvoker)delegate {
                     // Running on the UI thread
+                    //du.Label = 
                     du.Range = list[i].Range;
                     du.Value = list[i].Value;
                     du.Unit = list[i].Unit;
                 });
-                
-                //du.Label = (string)pg300Manager.parameterTable[i].name;
-                //Console.WriteLine("list.Value : {0}, list.Range : {1}, list.Name : {2} ", list[i].Value, list[i].Range, list[i].Name);
-                //Console.WriteLine("DataUnit.Value : {0}, DataUnit.Range : {1}, DataUnit.Label : {2} ", du.Value, du.Range, du.Label);
-                //MeasuredValuesPanel.Controls.Add(du);
             }
+            pg300Manager.SendR202Command();
         }
 
-        public void ReceiveR202DataFromManager(List<PG300DiagnosticsModel> list)
+        public void ReceiveR202DataFromManager(PG300DiagnosticsModel pg300Diagnostics)
         {
-            throw new NotImplementedException();
+            ndirCorrectionText.Invoke((MethodInvoker)delegate
+            {
+                ndirCorrectionText.Text = pg300Diagnostics.NDIRCorrectionTemperature.ToString();
+                ndirControlTmp.Text = pg300Diagnostics.NDIRControlTemperature.ToString();
+                o2ControlTmp.Text = pg300Diagnostics.O2ControlTemperature.ToString();
+                claControlTmp.Text = pg300Diagnostics.CLAControlTemperature.ToString();
+                internalTmp.Text = pg300Diagnostics.InternalTemperature.ToString();
+                electronicCoolrTmp.Text = pg300Diagnostics.ElectronicCoolerTemperature.ToString();
+                atmPrsText.Text = pg300Diagnostics.AtmosphericPressure.ToString();
+                flowRateTmp.Text = pg300Diagnostics.FlowRate.ToString();
+                lastReadDate.Text = DateTime.Now.ToLongTimeString();
+            });
         }
 
         private void SendEmailBt_Click(object sender, EventArgs e)
@@ -108,6 +120,7 @@ namespace SensorDataLogger.Devices
         {
             recordStop.Enabled = true;
             recordStart.Enabled = false;
+            pg300Manager.StartUDPListener();
             try
             {
                 pg300Timer.Interval = Convert.ToInt32(pg300TimerIntervalTb.Text) * 1000;
@@ -130,12 +143,18 @@ namespace SensorDataLogger.Devices
         {
             try
             {
+                pg300Manager.SetPG300IPAddress(deviceIPAddr.Text);
                 pg300Timer.Interval = Convert.ToInt32(pg300TimerIntervalTb.Text) * 1000;
             }
             catch (Exception ee)
             {
                 MessageBox.Show("Zamanlayıcı ayarlarını kontrol ediniz");
             }
+        }
+
+        private void PG300Page_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ExcelManager.Instance.CloseExcelApplication();
         }
     }
 }

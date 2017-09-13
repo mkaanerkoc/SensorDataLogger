@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cityComboBox = new System.Windows.Forms.ComboBox();
             this.factoryIDTb = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,7 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cancelBt = new System.Windows.Forms.Button();
             this.saveBt = new System.Windows.Forms.Button();
-            this.cityComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,12 +48,103 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.factoryNameTb);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(18, 21);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(345, 155);
+            this.groupBox1.Size = new System.Drawing.Size(358, 155);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fabrika Bilgileri";
+            // 
+            // cityComboBox
+            // 
+            this.cityComboBox.FormattingEnabled = true;
+            this.cityComboBox.Items.AddRange(new object[] {
+            "Adana",
+            "Adıyaman",
+            "Afyon",
+            "Ağrı",
+            "Amasya",
+            "Ankara",
+            "Antalya",
+            "Artvin",
+            "Aydın",
+            "Balıkesir",
+            "Bilecik",
+            "Bingöl",
+            "Bitlis",
+            "Bolu",
+            "Burdur",
+            "Bursa",
+            "Çanakkale",
+            "Çankırı",
+            "Çorum",
+            "Denizli",
+            "Diyarbakır",
+            "Edirne",
+            "Elazığ",
+            "Erzincan",
+            "Erzurum",
+            "Eskişehir",
+            "Gaziantep",
+            "Giresun",
+            "Gümüşhane",
+            "Hakkari",
+            "Hatay",
+            "Isparta",
+            "İçel (Mersin)",
+            "İstanbul",
+            "İzmir",
+            "Kars",
+            "Kastamonu",
+            "Kayseri",
+            "Kırklareli",
+            "Kırşehir",
+            "Kocaeli",
+            "Konya",
+            "Kütahya",
+            "Malatya",
+            "Manisa",
+            "K.maraş",
+            "Mardin",
+            "Muğla",
+            "Muş",
+            "Nevşehir",
+            "Niğde",
+            "Ordu",
+            "Rize",
+            "Sakarya",
+            "Samsun",
+            "Siirt",
+            "Sinop",
+            "Sivas",
+            "Tekirdağ",
+            "Tokat",
+            "Trabzon",
+            "Tunceli",
+            "Şanlıurfa",
+            "Uşak",
+            "Van",
+            "Yozgat",
+            "Zonguldak",
+            "Aksaray",
+            "Bayburt",
+            "Karaman",
+            "Kırıkkale",
+            "Batman",
+            "Şırnak",
+            "Bartın",
+            "Ardahan",
+            "Iğdır",
+            "Yalova",
+            "Karabük",
+            "Kilis",
+            "Osmaniye",
+            "Düzce"});
+            this.cityComboBox.Location = new System.Drawing.Point(154, 77);
+            this.cityComboBox.Name = "cityComboBox";
+            this.cityComboBox.Size = new System.Drawing.Size(150, 24);
+            this.cityComboBox.TabIndex = 14;
+            this.cityComboBox.SelectedIndexChanged += new System.EventHandler(this.cityComboBox_SelectedIndexChanged);
             // 
             // factoryIDTb
             // 
@@ -115,28 +206,6 @@
             this.saveBt.Text = "Kaydet";
             this.saveBt.UseVisualStyleBackColor = true;
             this.saveBt.Click += new System.EventHandler(this.saveBt_Click);
-            // 
-            // cityComboBox
-            // 
-            this.cityComboBox.FormattingEnabled = true;
-            this.cityComboBox.Items.AddRange(new object[] {
-            "Adana",
-            "Adıyaman",
-            "Afyon",
-            "Ankara",
-            "Antalya",
-            "Bolu",
-            "Bursa",
-            "Çanakkale",
-            "Eskişehir",
-            "İstanbul",
-            "İzmir",
-            "İzmit",
-            ""});
-            this.cityComboBox.Location = new System.Drawing.Point(154, 77);
-            this.cityComboBox.Name = "cityComboBox";
-            this.cityComboBox.Size = new System.Drawing.Size(150, 24);
-            this.cityComboBox.TabIndex = 14;
             // 
             // AddFactoryDialog
             // 

@@ -1,4 +1,3 @@
-C:\Users\Kaan\Documents\Visual Studio 2015\Projects\SensorDataLogger\SensorDataLogger\obj\Debug\SensorDataLogger.csprojResolveAssemblyReference.cache
 C:\Users\Kaan\Documents\Visual Studio 2015\Projects\SensorDataLogger\SensorDataLogger\obj\Debug\SensorDataLogger.csproj.ResolveComReference.cache
 C:\Users\Kaan\Documents\Visual Studio 2015\Projects\SensorDataLogger\SensorDataLogger\obj\Debug\SensorDataLogger.Properties.Resources.resources
 C:\Users\Kaan\Documents\Visual Studio 2015\Projects\SensorDataLogger\SensorDataLogger\obj\Debug\SensorDataLogger.Screens.ConsoleForm.resources
@@ -21,3 +20,5 @@ C:\Users\Kaan\Documents\Visual Studio 2015\Projects\SensorDataLogger\SensorDataL
 C:\Users\Kaan\Documents\Visual Studio 2015\Projects\SensorDataLogger\SensorDataLogger\obj\Debug\SensorDataLogger.Dialogs.OldRecordInformationDialog.resources
 C:\Users\Kaan\Documents\Visual Studio 2015\Projects\SensorDataLogger\SensorDataLogger\obj\Debug\SensorDataLogger.Controls.DataUnit.resources
 C:\Users\Kaan\Documents\Visual Studio 2015\Projects\SensorDataLogger\SensorDataLogger\bin\Debug\AGauge.dll
+C:\Users\Kaan\Documents\Visual Studio 2015\Projects\SensorDataLogger\SensorDataLogger\obj\Debug\SensorDataLogger.csprojResolveAssemblyReference.cache
+C:\Users\Kaan\Documents\Visual Studio 2015\Projects\SensorDataLogger\SensorDataLogger\obj\Debug\SensorDataLogger.Devices.PG250Pageee.resources

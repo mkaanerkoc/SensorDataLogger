@@ -1,4 +1,5 @@
-﻿using SensorDataLogger.StructObjects;
+﻿using SensorDataLogger.Screens;
+using SensorDataLogger.StructObjects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,11 @@ namespace SensorDataLogger.Dialogs
 {
     public partial class AddFactoryDialog : Form
     {
-        public FactoryModel factoryModel { get; set; }
+        public Factory factoryModel { get; set; }
         public AddFactoryDialog()
         {
             InitializeComponent();
-            this.factoryModel = new FactoryModel();
+            this.factoryModel = new Factory();
         }
 
         private void saveBt_Click(object sender, EventArgs e)
@@ -34,6 +35,11 @@ namespace SensorDataLogger.Dialogs
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void cityComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

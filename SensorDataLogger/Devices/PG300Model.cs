@@ -10,7 +10,7 @@ namespace SensorDataLogger.Devices
     {
 
         public List<PG300ChannelModel> channelList;
-        public List<PG300DiagnosticsModel> diagnosticsList;
+        public PG300DiagnosticsModel diagnosticsModel;
 
         private String brand = "Horiba";
         private String model = "PG300";
@@ -18,7 +18,7 @@ namespace SensorDataLogger.Devices
         public PG300Model()
         {
             channelList = new List<PG300ChannelModel>();
-            diagnosticsList = new List<PG300DiagnosticsModel>();
+            diagnosticsModel = new PG300DiagnosticsModel();
         }
 
     }
@@ -38,10 +38,31 @@ namespace SensorDataLogger.Devices
     }
     public class PG300DiagnosticsModel
     {
+        public double NDIRCorrectionTemperature { get; set; }
+        public double O2ControlTemperature { get; set; }
+        public double CLAControlTemperature { get; set; }
+        public double NDIRControlTemperature { get; set; }
+        public double InternalTemperature { get; set; }
+        public double ElectronicCoolerTemperature { get; set; }
+        public double AtmosphericPressure { get; set; }
+        public double FlowRate { get; set; }
+
         public PG300DiagnosticsModel()
         {
-
+            
         }
 
+    }
+    public class PG300ExcelRowModel
+    {
+        public string date { get; set; }
+        public string time { get; set; }
+        public List<PG300ChannelModel> pg300Channels { get; set; }
+        public PG300DiagnosticsModel pg300Diag { get; set; }
+
+        public PG300ExcelRowModel()
+        {
+            pg300Channels = new List<PG300ChannelModel>();
+        }
     }
 }

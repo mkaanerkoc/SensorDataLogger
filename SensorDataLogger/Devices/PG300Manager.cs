@@ -1,5 +1,6 @@
 ﻿using SensorDataLogger.Interfaces;
 using SensorDataLogger.StructObjects;
+using SensorDataLogger.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SensorDataLogger.Devices
 {
@@ -18,6 +20,7 @@ namespace SensorDataLogger.Devices
         private IPEndPoint ep;
         private Thread UdpListenerThread;
         private PG300Model pg300Model;
+        private IPAddress IpAdressOfPG300;
         private bool ListenerThreadCreated = false;
         public IPG300ManagerToPage pageInterface { get; set; }
         private const byte SOH = 0x01;
@@ -54,13 +57,51 @@ namespace SensorDataLogger.Devices
          */
         public PG300Manager()
         {
-            udpClient = new UdpClient();
-            InitializeHashTables();
-            ep = new IPEndPoint(IPAddress.Parse("192.168.1.1"), AppConstants.PG300_UDP_PORT); // endpoint where server is listening (testing localy)
-            pg300Model = new PG300Model();
-        }
 
-        private void StartUDPListener()
+            pg300Model = new PG300Model();
+            InitializeHashTables();
+            //ep = new IPEndPoint(IPAddress.Parse("192.168.1.1"), AppConstants.PG300_UDP_PORT); // endpoint where server is listening (testing localy)
+            
+
+            Thread thdUDPServer = new Thread(new
+            ThreadStart(serverThread));
+            thdUDPServer.Start();
+
+        }
+        public void SetPG300IPAddress(string ipAddress)
+        {
+            IPAddress ipAddr;
+            if (ep!=null)
+            {
+                try
+                {
+                    ipAddr = IPAddress.Parse(ipAddress);
+                }
+                catch(FormatException LolZa)
+                {
+                    MessageBox.Show("Lütfen Geçerli Bir IP Adresi giriniz  "+LolZa.Message);
+                    return;
+                }
+                ep.Address = ipAddr;
+                this.IpAdressOfPG300 = ipAddr;
+            }
+            else
+            {
+                try
+                {
+                    ipAddr = IPAddress.Parse(ipAddress);
+                }
+                catch (FormatException LolZa)
+                {
+                    MessageBox.Show("Lütfen Geçerli Bir IP Adresi giriniz  " + LolZa.Message);
+                    return;
+                }
+                ep = new IPEndPoint(ipAddr, AppConstants.PG300_UDP_PORT);
+                this.IpAdressOfPG300 = ipAddr;
+            }
+        }
+        /*will be deprecated */
+        public void StartUDPListener()
         {
             if (!ListenerThreadCreated)
             {
@@ -104,7 +145,6 @@ namespace SensorDataLogger.Devices
                         }
                     }
                 });
-
                 UdpListenerThread.IsBackground = true;
                 UdpListenerThread.Start();
                 ListenerThreadCreated = true;
@@ -112,6 +152,40 @@ namespace SensorDataLogger.Devices
 
         }
 
+        //Listener Thread
+        public void serverThread()
+        {
+            IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 60300);
+            udpClient = new UdpClient();
+            while (true)
+            {
+                udpClient.Client.Bind(RemoteIpEndPoint);
+                Byte[] receiveBytes = udpClient.Receive(ref RemoteIpEndPoint);
+                string returnDataStr = Encoding.ASCII.GetString(receiveBytes);
+                Console.WriteLine("Received Data " + returnDataStr);
+                if (ValidateData(receiveBytes))
+                {
+                    string[] returnData = returnDataStr.Split(AppConstants.PG300_SPLITTER_CHAR);
+                    string rcvdCmd = returnData[0].Substring(7, 4);
+                    if (rcvdCmd.Equals("R200"))
+                    {
+                        ParseR200Response(returnData);
+                    }
+                    else if (rcvdCmd.Equals("R201"))
+                    {
+                        ParseR201Response(returnData);
+                    }
+                    else if (rcvdCmd.Equals("R202"))
+                    {
+                        ParseR202Response(returnData);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Tanımlı olmayan bir dönüt geldi. Dönüt : {0}", rcvdCmd);
+                    }
+                }
+            }
+        }
         //Packer functions
         public void SendR200Command()
         {
@@ -119,7 +193,6 @@ namespace SensorDataLogger.Devices
             udpClient.Connect(ep);
             OutputBuffer = CalculateCheckSum(OutputBuffer);
             udpClient.Send(OutputBuffer, OutputBuffer.Length);
-            StartUDPListener();
         }
         public void SendR201Command()
         {
@@ -172,11 +245,10 @@ namespace SensorDataLogger.Devices
                 try
                 {
                     chModel.Range = Convert.ToInt16(InputBuffer[i].Substring(2, 5));
-                    chModel.Unit = unitTable[Convert.ToInt16(InputBuffer[i].Substring(5, 1))]; 
+                    chModel.Unit  = unitTable[Convert.ToInt16(InputBuffer[i].Substring(5, 1))]; 
                     //DecimalPlaces = Convert.ToInt16(InputBuffer[i].Substring(6, 1));
-                    DataValue = InputBuffer[i].Substring(9);
+                    DataValue     = InputBuffer[i].Substring(9);
                     chModel.Value = Double.Parse(DataValue);
-                    
                 }
                 catch (Exception e)
                 {
@@ -203,24 +275,103 @@ namespace SensorDataLogger.Devices
 
             }
             /*1. ile 11.kelimeler arası cihaz diagnostics bilgileri */
-            for (int i = 1; i < 11; i++)
+            //NDIR Correction Temperature
+            try
             {
-                try
-                {
-                    DecimalPlaces = Convert.ToInt16(InputBuffer[i].Substring(0, 1));
-                    DataValue = InputBuffer[i].Substring(1);
-                    value = Double.Parse(DataValue);
-                }
-                catch (Exception e)
-                {
-
-                }
-
-                //Console.WriteLine("Parameter Name : {0}, Decimal Place : {1},Value :{2}, Double Value : {3}", diagnosticsTable[i - 1], DecimalPlaces, DataValue, value);
+                pg300Model.diagnosticsModel.NDIRCorrectionTemperature = Double.Parse(InputBuffer[2].Substring(1));
+            }
+            catch(Exception e )
+            {
 
             }
+            //O2 Control Temperature
+            try
+            {
+                pg300Model.diagnosticsModel.O2ControlTemperature = Double.Parse(InputBuffer[4].Substring(1));
+            }
+            catch (Exception e)
+            {
+                pg300Model.diagnosticsModel.O2ControlTemperature = -1;
+            }
+            //CLA Control Temperature
+            try
+            {
+                pg300Model.diagnosticsModel.CLAControlTemperature = Double.Parse(InputBuffer[5].Substring(1));
+            }
+            catch (Exception e)
+            {
+                pg300Model.diagnosticsModel.CLAControlTemperature = -1;
+            }
+            //NDIR Control Temperature
+            try
+            {
+                pg300Model.diagnosticsModel.NDIRControlTemperature = Double.Parse(InputBuffer[6].Substring(1));
+            }
+            catch(Exception e)
+            {
+                pg300Model.diagnosticsModel.NDIRControlTemperature = -1;
+            }
+            //Internal Temperature
+            try
+            {
+                pg300Model.diagnosticsModel.InternalTemperature = Double.Parse(InputBuffer[7].Substring(1));
+            }
+            catch (Exception e)
+            {
+                pg300Model.diagnosticsModel.InternalTemperature = -1;
+            }
+            //Electronic Cooler Temperature
+            try
+            {
+                pg300Model.diagnosticsModel.ElectronicCoolerTemperature = Double.Parse(InputBuffer[8].Substring(1));
+            }
+            catch (Exception e)
+            {
+                pg300Model.diagnosticsModel.ElectronicCoolerTemperature = -1;
+            }
+            //Atmospheric Pressure
+            try
+            {
+                pg300Model.diagnosticsModel.AtmosphericPressure = Double.Parse(InputBuffer[9].Substring(1));
+            }
+            catch (Exception e)
+            {
+                pg300Model.diagnosticsModel.AtmosphericPressure = -1;
+            }
+            //FlowRate
+            try
+            {
+                pg300Model.diagnosticsModel.FlowRate = Double.Parse(InputBuffer[10].Substring(1));
+            }
+            catch (Exception e)
+            {
+                pg300Model.diagnosticsModel.FlowRate = -1;
+            }
+            
+            PG300ExcelRowModel pg300ExcelRow = new PG300ExcelRowModel();
+            pg300ExcelRow.date = DateTime.Now.ToShortDateString();
+            pg300ExcelRow.time = DateTime.Now.ToLongTimeString();
+            pg300ExcelRow.pg300Diag = pg300Model.diagnosticsModel;
+            pg300ExcelRow.pg300Channels = pg300Model.channelList;
+            ExcelManager.Instance.AppendLog(AppConstants.PG300_TYPE, pg300ExcelRow);
+
+            pageInterface.ReceiveR202DataFromManager(pg300Model.diagnosticsModel);
+
         }
 
+        //Excel Functions
+        private void AppendDataBuffer()
+        {
+            PG300ExcelRowModel pg300ExcelRow = new PG300ExcelRowModel();
+            pg300ExcelRow.date = DateTime.Now.ToShortDateString();
+            pg300ExcelRow.time = DateTime.Now.ToLongTimeString();
+            //for(int i = 0; i < pg300Model.channelList)
+            //pg300ExcelRow.pg300Channels
+        }
+        private void WriteBufferToExcel()
+        {
+
+        }
         //Util Functions
         private byte[] CalculateCheckSum(byte[] frame)
         {

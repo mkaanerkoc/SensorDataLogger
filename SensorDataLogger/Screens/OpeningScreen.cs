@@ -1,4 +1,5 @@
-﻿using SensorDataLogger.Utilities;
+﻿using SensorDataLogger.Devices;
+using SensorDataLogger.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,11 @@ namespace SensorDataLogger.Screens
     {
         private ProgramParameters prgParamsPage;
         private NewRecordDialog newRecDialog;
+
+        //Screen Variables//
+        private PG250Page pg250Page;
+        private PG300Page pg300Page;
+
         public OpeningScreen()
         {
             InitializeComponent();
@@ -27,8 +33,18 @@ namespace SensorDataLogger.Screens
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-
-                ExcelManager.Instance.ValidateWorkFile(openFileDialog1.FileName);
+                int result = ExcelManager.Instance.ValidateWorkFile(openFileDialog1.FileName);
+                if(result == 10)
+                {
+                    pg250Page = new PG250Page();
+                    pg250Page.Show();
+                    //sensorContent.Controls.Add(pg250Page);
+                }
+                else if(result ==11)
+                {
+                    pg300Page = new PG300Page();
+                    pg300Page.Show();
+                }
             }
         }
 

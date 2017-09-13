@@ -17,23 +17,26 @@ namespace SensorDataLogger.Screens
     {
         
         private PG250Page pg250Page;
+        private PG300Page pg300Page;
        
         private string deviceName;
 
         public SensorReadingForm(string deviceName)
         {
             InitializeComponent();
-            /*if (deviceName.Equals("PG250"))
+            if (deviceName.Equals("PG250"))
             {
                 pg250Page = new PG250Page();
-                sensorContent.Controls.Add(pg250Page);
+                pg250Page.Show();
+                //sensorContent.Controls.Add(pg250Page);
             }
             else if(deviceName.Equals("PG300"))
             {
-            
-            }*/
-            pg250Page = new PG250Page();
-            sensorContent.Controls.Add(pg250Page);
+                pg300Page = new PG300Page();
+                pg300Page.Show();
+            }
+            /*pg250Page = new PG250Pageee();
+            sensorContent.Controls.Add(pg250Page);*/
 
         }
 

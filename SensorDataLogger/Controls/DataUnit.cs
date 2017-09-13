@@ -60,7 +60,13 @@ namespace SensorDataLogger.Controls
                 unitLabel.Text = value;
             }
         }
-
+        public Color BackColor
+        {
+            set
+            {
+                this.BackColor = value;
+            }
+        }
         public DataUnit()
         {
             InitializeComponent();

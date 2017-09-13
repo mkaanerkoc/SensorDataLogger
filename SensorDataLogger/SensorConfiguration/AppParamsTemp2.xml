@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Params xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Operators>
+    <Operator>
+      <Name>Kaan </Name>
+      <Surname>Erkoç</Surname>
+      <ID>123</ID>
+    </Operator>
+    <Operator>
+      <Name>Erdem Uğur</Name>
+      <Surname>Alici</Surname>
+      <ID>1232</ID>
+    </Operator>
+  </Operators>
+  <Factories />
+  <Shatfs />
+  <Devices />
+</Params>

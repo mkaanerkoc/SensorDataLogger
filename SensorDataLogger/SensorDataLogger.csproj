@@ -63,10 +63,16 @@
     <Compile Include="Devices\PG250Manager.cs" />
     <Compile Include="Devices\PG250Model.cs" />
     <Compile Include="Devices\PG250Page.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Devices\PG250Page.Designer.cs">
       <DependentUpon>PG250Page.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\PG250Pageee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\PG250Pageee.Designer.cs">
+      <DependentUpon>PG250Pageee.cs</DependentUpon>
     </Compile>
     <Compile Include="Devices\PG300Manager.cs" />
     <Compile Include="Devices\PG300Model.cs" />
@@ -81,6 +87,12 @@
     </Compile>
     <Compile Include="Dialogs\AddFactoryDialog.Designer.cs">
       <DependentUpon>AddFactoryDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\AddMailUserDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AddMailUserDialog.Designer.cs">
+      <DependentUpon>AddMailUserDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\AddShaftDialog.cs">
       <SubType>Form</SubType>
@@ -163,11 +175,17 @@
     <EmbeddedResource Include="Devices\PG250Page.resx">
       <DependentUpon>PG250Page.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Devices\PG250Pageee.resx">
+      <DependentUpon>PG250Pageee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Devices\PG300Page.resx">
       <DependentUpon>PG300Page.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AddFactoryDialog.resx">
       <DependentUpon>AddFactoryDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\AddMailUserDialog.resx">
+      <DependentUpon>AddMailUserDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AddShaftDialog.resx">
       <DependentUpon>AddShaftDialog.cs</DependentUpon>
@@ -223,10 +241,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SensorConfiguration\AppParams.xml">
+    <Content Include="SensorConfiguration\AppParams.xml" />
+    <Content Include="SensorConfiguration\AppParamsTemp.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="SensorConfiguration\SensorsConfiguration.xml">
+    <Content Include="SensorConfiguration\SensorsConfigurationTemp.xml">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>

@@ -1,73 +1,71 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Params>
+<?xml version="1.0" encoding="utf-8"?>
+<Params xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Operators>
     <Operator>
-      <Name>Erdem</Name>
-      <Surname>Alıcı</Surname>
-      <ID>4521</ID>
+      <Name>Kadir </Name>
+      <Surname>Güçlü</Surname>
+      <ID>154</ID>
     </Operator>
     <Operator>
-      <Name>Kaan</Name>
-      <Surname>ERKOÇ</Surname>
-      <ID>8202</ID>
+      <Name>Ahmet </Name>
+      <Surname>Çoban</Surname>
+      <ID>231</ID>
     </Operator>
     <Operator>
       <Name>Burak</Name>
       <Surname>Karacan</Surname>
-      <ID>2311</ID>
+      <ID>31</ID>
     </Operator>
   </Operators>
   <Factories>
     <Factory>
-      <Name>Tüpraş</Name>
-      <City>İzmit</City>
-      <ID>35</ID>
       <Shafts>
         <Shaft>
-          <Name>SK-1</Name>
+          <Name>Sıcak Press 1 </Name>
+          <ID>52</ID>
         </Shaft>
         <Shaft>
-          <Name>SK-4</Name>
-        </Shaft>
-        <Shaft>
-          <Name>TP-2</Name>
+          <Name>Sıcak Press 2 </Name>
+          <ID>51</ID>
         </Shaft>
       </Shafts>
+      <Name>Nurol Teknoloji</Name>
+      <City>Artvin</City>
+      <ID>24</ID>
     </Factory>
     <Factory>
-      <Name>Petkim</Name>
-      <City>İzmir</City>
-      <ID>35-A</ID>
       <Shafts>
         <Shaft>
-          <Name>PT1</Name>
-        </Shaft>
-        <Shaft>
-          <Name>PT3</Name>
-        </Shaft>
-        <Shaft>
-          <Name>PT4</Name>
+          <Name>Baca1</Name>
+          <ID>4</ID>
         </Shaft>
       </Shafts>
+      <Name>Erdemir</Name>
+      <City>Zonguldak</City>
+      <ID>45</ID>
     </Factory>
-  
     <Factory>
+      <Shafts>
+        <Shaft>
+          <Name>Baca1</Name>
+          <ID>-</ID>
+        </Shaft>
+        <Shaft>
+          <Name>Baca2</Name>
+          <ID>.</ID>
+        </Shaft>
+      </Shafts>
       <Name>İzdemir</Name>
       <City>İzmir</City>
-      <ID>35-B</ID>
-      <Shafts>
-        <Shaft>
-          <Name>O1</Name>
-        </Shaft>
-        <Shaft>
-          <Name>O99</Name>
-        </Shaft>
-        <Shaft>
-          <Name>O2</Name>
-        </Shaft>
-      </Shafts>
+      <ID>44</ID>
     </Factory>
-    
   </Factories>
-  <Devices></Devices>
+  <Shatfs />
+  <Devices />
+  <MailUsers>
+    <MailUser>
+      <mailAddr>kaan.erkoc@argate.com.tr</mailAddr>
+      <groupID>4</groupID>
+    </MailUser>
+  </MailUsers>
 </Params>
