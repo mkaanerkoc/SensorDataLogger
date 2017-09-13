@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OldRecordInformationDialog));
             this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.yesBt = new System.Windows.Forms.Button();
@@ -260,6 +261,9 @@
             this.Controls.Add(this.yesBt);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "OldRecordInformationDialog";
             this.Text = "Ölçüm Bilgileri ";
             this.groupBox1.ResumeLayout(false);

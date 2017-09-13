@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PG250Page));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -115,6 +116,7 @@
             this.SendEmailBt.TabIndex = 3;
             this.SendEmailBt.Text = "Mail Gönder";
             this.SendEmailBt.UseVisualStyleBackColor = true;
+            this.SendEmailBt.Click += new System.EventHandler(this.SendEmailBt_Click);
             // 
             // recordStop
             // 
@@ -134,6 +136,7 @@
             this.C01CmdBt.TabIndex = 0;
             this.C01CmdBt.Text = "C01";
             this.C01CmdBt.UseVisualStyleBackColor = true;
+            this.C01CmdBt.Visible = false;
             this.C01CmdBt.Click += new System.EventHandler(this.C01CmdBt_Click);
             // 
             // setReadPeriod
@@ -163,6 +166,7 @@
             this.C23CmdBt.TabIndex = 1;
             this.C23CmdBt.Text = "C23";
             this.C23CmdBt.UseVisualStyleBackColor = true;
+            this.C23CmdBt.Visible = false;
             this.C23CmdBt.Click += new System.EventHandler(this.C23CmdBt_Click);
             // 
             // lastReadDate
@@ -292,6 +296,8 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.measuredValuesBox);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "PG250Page";
             this.Text = "Horiba PG250 Kayıt Ekranı";

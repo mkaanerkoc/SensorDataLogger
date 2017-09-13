@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUserDialog));
             this.saveBt = new System.Windows.Forms.Button();
             this.cancelBt = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -131,6 +132,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cancelBt);
             this.Controls.Add(this.saveBt);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "AddUserDialog";
             this.Text = "Yeni Operatör Ekle";
             this.groupBox1.ResumeLayout(false);

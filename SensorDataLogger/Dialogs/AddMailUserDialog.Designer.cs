@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddMailUserDialog));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.emailGrupID = new System.Windows.Forms.ComboBox();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.cancelBt = new System.Windows.Forms.Button();
             this.saveBt = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.emailGrupID = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +51,50 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mail Grubu Üye Bilgileri";
+            // 
+            // emailGrupID
+            // 
+            this.emailGrupID.FormattingEnabled = true;
+            this.emailGrupID.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.emailGrupID.Location = new System.Drawing.Point(134, 88);
+            this.emailGrupID.Name = "emailGrupID";
+            this.emailGrupID.Size = new System.Drawing.Size(202, 24);
+            this.emailGrupID.TabIndex = 3;
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.Location = new System.Drawing.Point(136, 39);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(200, 22);
+            this.emailTextBox.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(98, 17);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "E mail Grubu :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "E Mail Adresi :";
             // 
             // cancelBt
             // 
@@ -71,50 +116,6 @@
             this.saveBt.UseVisualStyleBackColor = true;
             this.saveBt.Click += new System.EventHandler(this.saveBt_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "E Mail Adresi :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 91);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "E mail Grubu :";
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.Location = new System.Drawing.Point(136, 39);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(200, 22);
-            this.emailTextBox.TabIndex = 2;
-            // 
-            // emailGrupID
-            // 
-            this.emailGrupID.FormattingEnabled = true;
-            this.emailGrupID.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.emailGrupID.Location = new System.Drawing.Point(134, 88);
-            this.emailGrupID.Name = "emailGrupID";
-            this.emailGrupID.Size = new System.Drawing.Size(202, 24);
-            this.emailGrupID.TabIndex = 3;
-            // 
             // AddMailUserDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -123,6 +124,9 @@
             this.Controls.Add(this.cancelBt);
             this.Controls.Add(this.saveBt);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "AddMailUserDialog";
             this.Text = "Mail Listesine Ekle";
             this.groupBox1.ResumeLayout(false);

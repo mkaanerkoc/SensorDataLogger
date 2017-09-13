@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewRecordDialog));
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -249,6 +250,8 @@
             this.ClientSize = new System.Drawing.Size(571, 499);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.startRecordBt);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewRecordDialog";
             this.Text = "Yeni Kayıt Ekranı";
             this.groupBox1.ResumeLayout(false);

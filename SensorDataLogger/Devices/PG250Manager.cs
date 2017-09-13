@@ -28,6 +28,11 @@ namespace SensorDataLogger.Devices
             serialPort1.DataReceived += SerialPort1_DataReceived;
         }
 
+        ~PG250Manager()
+        {
+            serialPort1.Close();
+        }
+
         private void SerialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             string ResponseData = serialPort1.ReadLine();

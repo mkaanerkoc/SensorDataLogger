@@ -28,8 +28,9 @@ namespace SensorDataLogger.Utilities
         private UInt64 pg300ExcelLastIndex = AppConstants.INITIAL_LOG_ROW;
 
         /*Logging Variables*/
-        private string fileName = "";
-        private string filePath = "";
+        public string fileName = "";
+        public string filePath = "";
+        public string lastSaveDatetime = "";
         private byte deviceType = 0;
         private UInt32 lastRowIndex = AppConstants.INITIAL_LOG_ROW;
 
@@ -40,9 +41,7 @@ namespace SensorDataLogger.Utilities
         Workbook oWB;
         public ExcelManager()
         {
-            oWB = null;
-            oXL = new Microsoft.Office.Interop.Excel.Application();
-            oXL.DisplayAlerts = false;
+            
             
         }
 
@@ -99,6 +98,10 @@ namespace SensorDataLogger.Utilities
             this.fileName = FilePath + "/" + FileNameStr;
             this.filePath = FilePath;
             this.deviceType = (byte)(DeviceType + 1);
+
+            oWB = null;
+            oXL = new Microsoft.Office.Interop.Excel.Application();
+            oXL.DisplayAlerts = false;
 
             if (oXL == null)
             {
@@ -250,6 +253,9 @@ namespace SensorDataLogger.Utilities
             
             Worksheet xlWorksheet;
             Workbook xlWorkbook;
+            oWB = null;
+            oXL = new Microsoft.Office.Interop.Excel.Application();
+            oXL.DisplayAlerts = false;
             try
             {
                 xlWorkbook = oXL.Workbooks.Open(filename);
@@ -382,6 +388,7 @@ namespace SensorDataLogger.Utilities
                     xs.Cells[lastRow + i, 12] = pg250ExcelBuffer[i].pg250Diag.FLOW;
                     xs.Cells[lastRow + i, 13] = pg250ExcelBuffer[i].pg250Diag.NDIR;
                 }
+                lastSaveDatetime = pg250ExcelBuffer[9].time;
                 xlWorkbook.Save();
                 xlWorkbook.Close();
             }
@@ -420,6 +427,7 @@ namespace SensorDataLogger.Utilities
                     xs.Cells[lastRow + i, 29] = pg300ExcelBuffer[i].pg300Diag.AtmosphericPressure;
                     xs.Cells[lastRow + i, 30] = pg300ExcelBuffer[i].pg300Diag.FlowRate;
                 }
+                lastSaveDatetime = pg300ExcelBuffer[9].time;
                 xlWorkbook.Save();
                 xlWorkbook.Close();
             }
@@ -458,6 +466,7 @@ namespace SensorDataLogger.Utilities
         {
             oXL.Quit();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(oXL);
+            oXL = null;
         }
 
     }

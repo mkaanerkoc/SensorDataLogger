@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddFactoryDialog));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cityComboBox = new System.Windows.Forms.ComboBox();
             this.factoryIDTb = new System.Windows.Forms.TextBox();
@@ -215,6 +216,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cancelBt);
             this.Controls.Add(this.saveBt);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "AddFactoryDialog";
             this.Text = "Yeni Fabrika Bilgisi Ekle";
             this.groupBox1.ResumeLayout(false);

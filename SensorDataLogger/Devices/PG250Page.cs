@@ -48,7 +48,6 @@ namespace SensorDataLogger.Devices
         {
             for (int i = 0; i < list.Count; i++)
             {
-
                 DataUnit du = dataUnitList[i];
                 du.Invoke((MethodInvoker)delegate {
                     // Running on the UI thread
@@ -74,9 +73,9 @@ namespace SensorDataLogger.Devices
                     {
                         du.Unit = "Under Range";
                     }
-
                 });
             }
+            //Chained Requests. Daha iyi bir çözüm getirilebilir buraya.Belki command ler bir queue ya eklenebilir
             pg250Manager.SendC23Command();
         }
 
@@ -87,6 +86,7 @@ namespace SensorDataLogger.Devices
                 sampleFlowRateTxt.Text = model.FLOW.ToString();
                 ndirTempText.Text = model.NDIR.ToString();
                 lastReadDate.Text = DateTime.Now.ToLongTimeString();
+                lastSaveDate.Text = ExcelManager.Instance.lastSaveDatetime;
             });
                 
         }
@@ -165,6 +165,11 @@ namespace SensorDataLogger.Devices
         private void PG250Page_FormClosing(object sender, FormClosingEventArgs e)
         {
             ExcelManager.Instance.CloseExcelApplication();
+        }
+
+        private void SendEmailBt_Click(object sender, EventArgs e)
+        {
+            MailManager.Instance.SendEmail("PG250 Ölçüm Sonuçları", "Bu otomatik bir maildir. Ölçüm sonuçlarını göndermek için gönderilmiştir.", ExcelManager.Instance.fileName);
         }
     }
 }

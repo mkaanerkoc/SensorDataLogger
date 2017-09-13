@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PG300Page));
             this.R200CmdBt = new System.Windows.Forms.Button();
             this.R201CmdBt = new System.Windows.Forms.Button();
             this.R202CmdBt = new System.Windows.Forms.Button();
@@ -48,16 +49,6 @@
             this.pg300Timer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.measuredValuesBox = new System.Windows.Forms.GroupBox();
-            this.MeasuredValuesPanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ndirCorrectionText = new System.Windows.Forms.Label();
-            this.o2ControlTmp = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.electronicCoolrTmp = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.internalTmp = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.flowRateTmp = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.atmPrsText = new System.Windows.Forms.Label();
@@ -66,6 +57,16 @@
             this.label15 = new System.Windows.Forms.Label();
             this.claControlTmp = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.electronicCoolrTmp = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.internalTmp = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.o2ControlTmp = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ndirCorrectionText = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.measuredValuesBox = new System.Windows.Forms.GroupBox();
+            this.MeasuredValuesPanel = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -80,6 +81,7 @@
             this.R200CmdBt.TabIndex = 0;
             this.R200CmdBt.Text = "R200";
             this.R200CmdBt.UseVisualStyleBackColor = true;
+            this.R200CmdBt.Visible = false;
             this.R200CmdBt.Click += new System.EventHandler(this.sendCmdBt_Click);
             // 
             // R201CmdBt
@@ -90,6 +92,7 @@
             this.R201CmdBt.TabIndex = 1;
             this.R201CmdBt.Text = "R201";
             this.R201CmdBt.UseVisualStyleBackColor = true;
+            this.R201CmdBt.Visible = false;
             this.R201CmdBt.Click += new System.EventHandler(this.R201CmdBt_Click);
             // 
             // R202CmdBt
@@ -100,6 +103,7 @@
             this.R202CmdBt.TabIndex = 2;
             this.R202CmdBt.Text = "R202";
             this.R202CmdBt.UseVisualStyleBackColor = true;
+            this.R202CmdBt.Visible = false;
             this.R202CmdBt.Click += new System.EventHandler(this.R202CmdBt_Click);
             // 
             // groupBox1
@@ -275,104 +279,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cihaz Değerleri";
             // 
-            // measuredValuesBox
-            // 
-            this.measuredValuesBox.Controls.Add(this.MeasuredValuesPanel);
-            this.measuredValuesBox.Location = new System.Drawing.Point(11, 1);
-            this.measuredValuesBox.Name = "measuredValuesBox";
-            this.measuredValuesBox.Size = new System.Drawing.Size(1240, 600);
-            this.measuredValuesBox.TabIndex = 6;
-            this.measuredValuesBox.TabStop = false;
-            this.measuredValuesBox.Text = "Ölçüm Değerleri";
-            // 
-            // MeasuredValuesPanel
-            // 
-            this.MeasuredValuesPanel.AutoScroll = true;
-            this.MeasuredValuesPanel.Location = new System.Drawing.Point(7, 22);
-            this.MeasuredValuesPanel.Name = "MeasuredValuesPanel";
-            this.MeasuredValuesPanel.Size = new System.Drawing.Size(1227, 569);
-            this.MeasuredValuesPanel.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(174, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(238, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "NDIR Correction Temperature ";
-            // 
-            // ndirCorrectionText
-            // 
-            this.ndirCorrectionText.AutoSize = true;
-            this.ndirCorrectionText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ndirCorrectionText.Location = new System.Drawing.Point(445, 44);
-            this.ndirCorrectionText.Name = "ndirCorrectionText";
-            this.ndirCorrectionText.Size = new System.Drawing.Size(15, 20);
-            this.ndirCorrectionText.TabIndex = 1;
-            this.ndirCorrectionText.Text = "-";
-            // 
-            // o2ControlTmp
-            // 
-            this.o2ControlTmp.AutoSize = true;
-            this.o2ControlTmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.o2ControlTmp.Location = new System.Drawing.Point(445, 78);
-            this.o2ControlTmp.Name = "o2ControlTmp";
-            this.o2ControlTmp.Size = new System.Drawing.Size(15, 20);
-            this.o2ControlTmp.TabIndex = 3;
-            this.o2ControlTmp.Text = "-";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(210, 78);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(190, 20);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "O2 Control Temperature";
-            // 
-            // electronicCoolrTmp
-            // 
-            this.electronicCoolrTmp.AutoSize = true;
-            this.electronicCoolrTmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.electronicCoolrTmp.Location = new System.Drawing.Point(923, 78);
-            this.electronicCoolrTmp.Name = "electronicCoolrTmp";
-            this.electronicCoolrTmp.Size = new System.Drawing.Size(15, 20);
-            this.electronicCoolrTmp.TabIndex = 7;
-            this.electronicCoolrTmp.Text = "-";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(644, 78);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(238, 20);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Electronic Cooler Temperature";
-            // 
-            // internalTmp
-            // 
-            this.internalTmp.AutoSize = true;
-            this.internalTmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.internalTmp.Location = new System.Drawing.Point(923, 44);
-            this.internalTmp.Name = "internalTmp";
-            this.internalTmp.Size = new System.Drawing.Size(15, 20);
-            this.internalTmp.TabIndex = 5;
-            this.internalTmp.Text = "-";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(644, 44);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(164, 20);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Internal Temperature";
-            // 
             // flowRateTmp
             // 
             this.flowRateTmp.AutoSize = true;
@@ -453,6 +359,104 @@
             this.label17.TabIndex = 8;
             this.label17.Text = "CLA Control Temperature";
             // 
+            // electronicCoolrTmp
+            // 
+            this.electronicCoolrTmp.AutoSize = true;
+            this.electronicCoolrTmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.electronicCoolrTmp.Location = new System.Drawing.Point(923, 78);
+            this.electronicCoolrTmp.Name = "electronicCoolrTmp";
+            this.electronicCoolrTmp.Size = new System.Drawing.Size(15, 20);
+            this.electronicCoolrTmp.TabIndex = 7;
+            this.electronicCoolrTmp.Text = "-";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(644, 78);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(238, 20);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Electronic Cooler Temperature";
+            // 
+            // internalTmp
+            // 
+            this.internalTmp.AutoSize = true;
+            this.internalTmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.internalTmp.Location = new System.Drawing.Point(923, 44);
+            this.internalTmp.Name = "internalTmp";
+            this.internalTmp.Size = new System.Drawing.Size(15, 20);
+            this.internalTmp.TabIndex = 5;
+            this.internalTmp.Text = "-";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(644, 44);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(164, 20);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Internal Temperature";
+            // 
+            // o2ControlTmp
+            // 
+            this.o2ControlTmp.AutoSize = true;
+            this.o2ControlTmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.o2ControlTmp.Location = new System.Drawing.Point(445, 78);
+            this.o2ControlTmp.Name = "o2ControlTmp";
+            this.o2ControlTmp.Size = new System.Drawing.Size(15, 20);
+            this.o2ControlTmp.TabIndex = 3;
+            this.o2ControlTmp.Text = "-";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(210, 78);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(190, 20);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "O2 Control Temperature";
+            // 
+            // ndirCorrectionText
+            // 
+            this.ndirCorrectionText.AutoSize = true;
+            this.ndirCorrectionText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ndirCorrectionText.Location = new System.Drawing.Point(445, 44);
+            this.ndirCorrectionText.Name = "ndirCorrectionText";
+            this.ndirCorrectionText.Size = new System.Drawing.Size(15, 20);
+            this.ndirCorrectionText.TabIndex = 1;
+            this.ndirCorrectionText.Text = "-";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(174, 44);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(238, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "NDIR Correction Temperature ";
+            // 
+            // measuredValuesBox
+            // 
+            this.measuredValuesBox.Controls.Add(this.MeasuredValuesPanel);
+            this.measuredValuesBox.Location = new System.Drawing.Point(11, 1);
+            this.measuredValuesBox.Name = "measuredValuesBox";
+            this.measuredValuesBox.Size = new System.Drawing.Size(1240, 600);
+            this.measuredValuesBox.TabIndex = 6;
+            this.measuredValuesBox.TabStop = false;
+            this.measuredValuesBox.Text = "Ölçüm Değerleri";
+            // 
+            // MeasuredValuesPanel
+            // 
+            this.MeasuredValuesPanel.AutoScroll = true;
+            this.MeasuredValuesPanel.Location = new System.Drawing.Point(7, 22);
+            this.MeasuredValuesPanel.Name = "MeasuredValuesPanel";
+            this.MeasuredValuesPanel.Size = new System.Drawing.Size(1227, 569);
+            this.MeasuredValuesPanel.TabIndex = 0;
+            // 
             // PG300Page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -460,6 +464,8 @@
             this.ClientSize = new System.Drawing.Size(1262, 1178);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "PG300Page";
             this.Text = "Horiba PG300 Kayıt Ekranı";

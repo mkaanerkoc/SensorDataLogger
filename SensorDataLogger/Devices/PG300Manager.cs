@@ -19,6 +19,7 @@ namespace SensorDataLogger.Devices
         private UdpClient udpClient;
         private IPEndPoint ep;
         private Thread UdpListenerThread;
+        private Thread thdUDPServer;
         private PG300Model pg300Model;
         private IPAddress IpAdressOfPG300;
         private bool ListenerThreadCreated = false;
@@ -61,12 +62,13 @@ namespace SensorDataLogger.Devices
             pg300Model = new PG300Model();
             InitializeHashTables();
             //ep = new IPEndPoint(IPAddress.Parse("192.168.1.1"), AppConstants.PG300_UDP_PORT); // endpoint where server is listening (testing localy)
-            
-
-            Thread thdUDPServer = new Thread(new
-            ThreadStart(serverThread));
+            thdUDPServer = new Thread(new ThreadStart(serverThread));
             thdUDPServer.Start();
 
+        }
+        ~PG300Manager()
+        {
+            Console.WriteLine("From pg300 destructor"); 
         }
         public void SetPG300IPAddress(string ipAddress)
         {
@@ -155,11 +157,11 @@ namespace SensorDataLogger.Devices
         //Listener Thread
         public void serverThread()
         {
-            IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 60300);
-            udpClient = new UdpClient();
+            IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
+            udpClient = new UdpClient(60300);
             while (true)
             {
-                udpClient.Client.Bind(RemoteIpEndPoint);
+                //udpClient.Client.Bind(RemoteIpEndPoint);
                 Byte[] receiveBytes = udpClient.Receive(ref RemoteIpEndPoint);
                 string returnDataStr = Encoding.ASCII.GetString(receiveBytes);
                 Console.WriteLine("Received Data " + returnDataStr);
@@ -200,7 +202,7 @@ namespace SensorDataLogger.Devices
             udpClient.Connect(ep);
             OutputBuffer = CalculateCheckSum(OutputBuffer);
             udpClient.Send(OutputBuffer, OutputBuffer.Length);
-            StartUDPListener();
+            //StartUDPListener();
         }
         public void SendR202Command()
         {
@@ -208,7 +210,7 @@ namespace SensorDataLogger.Devices
             udpClient.Connect(ep);
             OutputBuffer = CalculateCheckSum(OutputBuffer);
             udpClient.Send(OutputBuffer, OutputBuffer.Length);
-            StartUDPListener();
+           //StartUDPListener();
         }
 
         //Parser functions
@@ -371,6 +373,13 @@ namespace SensorDataLogger.Devices
         private void WriteBufferToExcel()
         {
 
+        }
+        public void CloseConnection()
+        {
+            udpClient.Client.Close();
+            udpClient.Close();
+            udpClient = null;
+            thdUDPServer.Abort();
         }
         //Util Functions
         private byte[] CalculateCheckSum(byte[] frame)
