@@ -41,7 +41,7 @@ namespace SensorDataLogger.Screens
         private void Serialize(Params appParams)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Params));
-            using (TextWriter writer = new StreamWriter(@"../../SensorConfiguration/AppParams.xml"))
+            using (TextWriter writer = new StreamWriter(AppConstants.ConfigurationFilePath))
             {
                 serializer.Serialize(writer, appParams);
                 MessageBox.Show("Kaydedildi!");
@@ -50,7 +50,7 @@ namespace SensorDataLogger.Screens
         private void Deserialize()
         {
             XmlSerializer deserializer = new XmlSerializer(typeof(Params));
-            TextReader reader = new StreamReader(@"../../SensorConfiguration/AppParams.xml");
+            TextReader reader = new StreamReader(AppConstants.ConfigurationFilePath);
             object obj = deserializer.Deserialize(reader);
             XmlData = (Params)obj;
             reader.Close();

@@ -72,5 +72,6 @@ namespace SensorDataLogger.StructObjects
                 "Flow rate data (L/min)"
             }
         );
+        public static string ConfigurationFilePath = @"SensorConfiguration/AppParams.xml";
     }
 }

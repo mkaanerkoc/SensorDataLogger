@@ -15,5 +15,7 @@ namespace SensorDataLogger
         public static   Int16 EXCEL_SUCCESS = 1;
         public static   Int16 EXCEL_NOT_FOUND = 0;
         public static   Int16 EXCEL_CANNOT_WRITE = -1;
+
+
     }
 }

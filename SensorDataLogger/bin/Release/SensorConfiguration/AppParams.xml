@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Params xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Operators>
+    <Operator>
+      <Name>Kadir </Name>
+      <Surname>Güçlü</Surname>
+      <ID>154</ID>
+    </Operator>
+    <Operator>
+      <Name>Ahmet </Name>
+      <Surname>Çoban</Surname>
+      <ID>231</ID>
+    </Operator>
+    <Operator>
+      <Name>Burak</Name>
+      <Surname>Karacan</Surname>
+      <ID>31</ID>
+    </Operator>
+  </Operators>
+  <Factories>
+    <Factory>
+      <Shafts>
+        <Shaft>
+          <Name>Baca1</Name>
+          <ID>4</ID>
+        </Shaft>
+      </Shafts>
+      <Name>Erdemir</Name>
+      <City>Zonguldak</City>
+      <ID>45</ID>
+    </Factory>
+    <Factory>
+      <Shafts>
+        <Shaft>
+          <Name>Baca1</Name>
+          <ID>-</ID>
+        </Shaft>
+        <Shaft>
+          <Name>Baca2</Name>
+          <ID>.</ID>
+        </Shaft>
+      </Shafts>
+      <Name>İzdemir</Name>
+      <City>İzmir</City>
+      <ID>44</ID>
+    </Factory>
+  </Factories>
+  <Shatfs />
+  <Devices />
+  <MailUsers>
+    <MailUser>
+      <mailAddr>kaan.erkoc@argate.com.tr</mailAddr>
+      <groupID>4</groupID>
+    </MailUser>
+  </MailUsers>
+</Params>

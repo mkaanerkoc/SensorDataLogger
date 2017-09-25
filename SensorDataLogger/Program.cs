@@ -1,5 +1,6 @@
 ﻿using SensorDataLogger.Devices;
 using SensorDataLogger.Screens;
+using SensorDataLogger.StructObjects;
 using SensorDataLogger.Utilities;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace SensorDataLogger
         }
         static private void CheckForParameterFile()
         {
-            if(System.IO.File.Exists(@"../../SensorConfiguration/AppParams.xml"))
+            if(System.IO.File.Exists(AppConstants.ConfigurationFilePath))
             {
                 return;
             }
@@ -37,7 +38,7 @@ namespace SensorDataLogger
             doc.AppendChild(docNode);
             XmlNode productsNode = doc.CreateElement("Params");
             doc.AppendChild(productsNode);
-            doc.Save(@"../../SensorConfiguration/AppParams.xml");
+            doc.Save(AppConstants.ConfigurationFilePath);
         }
 
         static void OnProcessExit(object sender,EventArgs e)

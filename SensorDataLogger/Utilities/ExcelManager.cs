@@ -95,7 +95,7 @@ namespace SensorDataLogger.Utilities
                                     string FileNameStr,
                                     string FilePath)
         {
-            this.fileName = FilePath + "/" + FileNameStr;
+            this.fileName = FilePath + "\\" + FileNameStr;
             this.filePath = FilePath;
             this.deviceType = (byte)(DeviceType + 1);
 
@@ -112,16 +112,33 @@ namespace SensorDataLogger.Utilities
             {
                 //oXL.Visible = true;
                 oWB = oXL.Workbooks.Add(Type.Missing);
-                Worksheet sh;
-                if (oWB.Sheets.Count > 1)
+                Worksheet sh = null;
+                //Office 2013
+                if(oXL.Version.Equals("15.0"))
                 {
-                    sh = oWB.Sheets[0];
+                    if (oWB.Sheets.Count > 1)
+                    {
+                        sh = oWB.Sheets[0];
+                    }
+                    else
+                    {
+                        sh = oWB.Sheets.Add();
+                        sh.Name = "DATA";
+                    }
                 }
-                else
+                if(oXL.Version.Equals("14.0")||oXL.Version.Equals("12.0") || oXL.Version.Equals("11.0"))
                 {
-                    sh = oWB.Sheets.Add();
-                    sh.Name = "DATA";
+                    if (oWB.Sheets.Count > 1)
+                    {
+                        sh = oWB.Sheets[1];
+                    }
+                    else
+                    {
+                        sh = oWB.Sheets.Add(1);
+                        sh.Name = "DATA";
+                    }
                 }
+
                 //Create frame
                 for (int i = 1; i < 15; i++)
                 {

@@ -1,4 +1,5 @@
 ﻿using SensorDataLogger.Screens;
+using SensorDataLogger.StructObjects;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -71,7 +72,7 @@ namespace SensorDataLogger.Utilities
         private void Deserialize()
         {
             XmlSerializer deserializer = new XmlSerializer(typeof(Params));
-            TextReader reader = new StreamReader(@"../../SensorConfiguration/AppParams.xml");
+            TextReader reader = new StreamReader(AppConstants.ConfigurationFilePath);
             object obj = deserializer.Deserialize(reader);
             XmlData = (Params)obj;
             reader.Close();

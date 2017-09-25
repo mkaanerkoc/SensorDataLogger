@@ -1,4 +1,5 @@
 ﻿using SensorDataLogger.Devices;
+using SensorDataLogger.StructObjects;
 using SensorDataLogger.Utilities;
 using System;
 using System.Collections.Generic;
@@ -111,7 +112,7 @@ namespace SensorDataLogger.Screens
             shaftSelectionCb.Items.Clear();
 
             XmlSerializer deserializer = new XmlSerializer(typeof(Params));
-            TextReader reader = new StreamReader(@"../../SensorConfiguration/AppParams.xml");
+            TextReader reader = new StreamReader(AppConstants.ConfigurationFilePath);
             object obj = deserializer.Deserialize(reader);
             XmlData = (Params)obj;
             reader.Close();
