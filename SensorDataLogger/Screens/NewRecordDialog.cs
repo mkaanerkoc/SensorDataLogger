@@ -41,12 +41,12 @@ namespace SensorDataLogger.Screens
 
             if (factorySelectionCb.SelectedIndex == -1)
             {
-                MessageBox.Show("Lütfen Fabrika İsmini Giriniz!");
+                MessageBox.Show("Lütfen Tesis Seçiniz!");
                 return;
             }
             if (shaftSelectionCb.SelectedIndex == -1)
             {
-                MessageBox.Show("Lütfen Baca İsmini Giriniz!");
+                MessageBox.Show("Lütfen Ölçüm Noktasını Seçiniz !");
                 return;
             }
             if(label8.Text.Length<2)
@@ -76,7 +76,7 @@ namespace SensorDataLogger.Screens
                 pg250Page.Show();
                 //sensorContent.Controls.Add(pg250Page);
             }
-            else if (deviceName.Equals("PG300"))
+            else if (deviceName.Equals("PG350"))
             {
                 pg300Page = new PG300Page();
                 pg300Page.Show();

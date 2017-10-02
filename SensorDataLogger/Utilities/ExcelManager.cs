@@ -307,7 +307,7 @@ namespace SensorDataLogger.Utilities
                     {
                         return 10;
                     }
-                    else if(deviceName.Equals("PG300"))
+                    else if(deviceName.Equals("PG350"))
                     {
                         return 11;
                     }

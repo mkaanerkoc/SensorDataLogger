@@ -30,7 +30,7 @@ namespace SensorDataLogger.Screens
                 pg250Page.Show();
                 //sensorContent.Controls.Add(pg250Page);
             }
-            else if(deviceName.Equals("PG300"))
+            else if(deviceName.Equals("PG350"))
             {
                 pg300Page = new PG300Page();
                 pg300Page.Show();
